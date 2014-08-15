@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  pgn: 1
+  priority: 1
+  default_rate: 1
+  database_version: 1
+  category: 1
+  type: 1
+  size: 1
+  repeating_fields: 1
+  is_known: false
+
+two:
+  name: MyString
+  description: MyText
+  pgn: 1
+  priority: 1
+  default_rate: 1
+  database_version: 1
+  category: 1
+  type: 1
+  size: 1
+  repeating_fields: 1
+  is_known: false

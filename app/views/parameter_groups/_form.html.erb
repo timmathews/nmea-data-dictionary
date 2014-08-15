@@ -1,0 +1,61 @@
+<%= form_for(@parameter_group) do |f| %>
+  <% if @parameter_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parameter_group.errors.count, "error") %> prohibited this parameter_group from being saved:</h2>
+
+      <ul>
+      <% @parameter_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :pgn %><br>
+    <%= f.number_field :pgn %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br>
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :default_rate %><br>
+    <%= f.number_field :default_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :database_version %><br>
+    <%= f.number_field :database_version %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.number_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :repeating_fields %><br>
+    <%= f.number_field :repeating_fields %>
+  </div>
+  <div class="field">
+    <%= f.label :is_known %><br>
+    <%= f.check_box :is_known %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

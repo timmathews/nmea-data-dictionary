@@ -1,0 +1,47 @@
+<h1>Listing parameter_groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Pgn</th>
+      <th>Priority</th>
+      <th>Default rate</th>
+      <th>Database version</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Repeating fields</th>
+      <th>Is known</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parameter_groups.each do |parameter_group| %>
+      <tr>
+        <td><%= parameter_group.name %></td>
+        <td><%= parameter_group.description %></td>
+        <td><%= parameter_group.pgn %></td>
+        <td><%= parameter_group.priority %></td>
+        <td><%= parameter_group.default_rate %></td>
+        <td><%= parameter_group.database_version %></td>
+        <td><%= parameter_group.category %></td>
+        <td><%= parameter_group.type %></td>
+        <td><%= parameter_group.size %></td>
+        <td><%= parameter_group.repeating_fields %></td>
+        <td><%= parameter_group.is_known %></td>
+        <td><%= link_to 'Show', parameter_group %></td>
+        <td><%= link_to 'Edit', edit_parameter_group_path(parameter_group) %></td>
+        <td><%= link_to 'Destroy', parameter_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parameter group', new_parameter_group_path %>

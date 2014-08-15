@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @parameter_group.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @parameter_group.description %>
+</p>
+
+<p>
+  <strong>Pgn:</strong>
+  <%= @parameter_group.pgn %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @parameter_group.priority %>
+</p>
+
+<p>
+  <strong>Default rate:</strong>
+  <%= @parameter_group.default_rate %>
+</p>
+
+<p>
+  <strong>Database version:</strong>
+  <%= @parameter_group.database_version %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @parameter_group.category %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @parameter_group.type %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @parameter_group.size %>
+</p>
+
+<p>
+  <strong>Repeating fields:</strong>
+  <%= @parameter_group.repeating_fields %>
+</p>
+
+<p>
+  <strong>Is known:</strong>
+  <%= @parameter_group.is_known %>
+</p>
+
+<%= link_to 'Edit', edit_parameter_group_path(@parameter_group) %> |
+<%= link_to 'Back', parameter_groups_path %>
