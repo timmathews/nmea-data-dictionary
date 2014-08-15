@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815215238) do
+ActiveRecord::Schema.define(version: 20140815215725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "field_enumerators", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "field_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "field_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "field_units", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fields", force: true do |t|
     t.string   "name"
@@ -45,6 +68,20 @@ ActiveRecord::Schema.define(version: 20140815215238) do
     t.integer  "size"
     t.integer  "repeating_fields"
     t.boolean  "is_known"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pgn_categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pgn_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
