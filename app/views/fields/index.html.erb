@@ -1,0 +1,49 @@
+<h1>Listing fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Byte pos</th>
+      <th>Bit pos</th>
+      <th>Length</th>
+      <th>Type</th>
+      <th>Scaling</th>
+      <th>Offset</th>
+      <th>Units</th>
+      <th>Min value</th>
+      <th>Max value</th>
+      <th>Signalk path</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fields.each do |field| %>
+      <tr>
+        <td><%= field.name %></td>
+        <td><%= field.description %></td>
+        <td><%= field.byte_pos %></td>
+        <td><%= field.bit_pos %></td>
+        <td><%= field.length %></td>
+        <td><%= field.type %></td>
+        <td><%= field.scaling %></td>
+        <td><%= field.offset %></td>
+        <td><%= field.units %></td>
+        <td><%= field.min_value %></td>
+        <td><%= field.max_value %></td>
+        <td><%= field.signalk_path %></td>
+        <td><%= link_to 'Show', field %></td>
+        <td><%= link_to 'Edit', edit_field_path(field) %></td>
+        <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Field', new_field_path %>

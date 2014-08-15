@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @field.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @field.description %>
+</p>
+
+<p>
+  <strong>Byte pos:</strong>
+  <%= @field.byte_pos %>
+</p>
+
+<p>
+  <strong>Bit pos:</strong>
+  <%= @field.bit_pos %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @field.length %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @field.type %>
+</p>
+
+<p>
+  <strong>Scaling:</strong>
+  <%= @field.scaling %>
+</p>
+
+<p>
+  <strong>Offset:</strong>
+  <%= @field.offset %>
+</p>
+
+<p>
+  <strong>Units:</strong>
+  <%= @field.units %>
+</p>
+
+<p>
+  <strong>Min value:</strong>
+  <%= @field.min_value %>
+</p>
+
+<p>
+  <strong>Max value:</strong>
+  <%= @field.max_value %>
+</p>
+
+<p>
+  <strong>Signalk path:</strong>
+  <%= @field.signalk_path %>
+</p>
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>

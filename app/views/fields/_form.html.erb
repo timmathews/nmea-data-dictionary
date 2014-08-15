@@ -1,0 +1,65 @@
+<%= form_for(@field) do |f| %>
+  <% if @field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
+      <ul>
+      <% @field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :byte_pos %><br>
+    <%= f.number_field :byte_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :bit_pos %><br>
+    <%= f.number_field :bit_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :scaling %><br>
+    <%= f.text_field :scaling %>
+  </div>
+  <div class="field">
+    <%= f.label :offset %><br>
+    <%= f.number_field :offset %>
+  </div>
+  <div class="field">
+    <%= f.label :units %><br>
+    <%= f.number_field :units %>
+  </div>
+  <div class="field">
+    <%= f.label :min_value %><br>
+    <%= f.text_field :min_value %>
+  </div>
+  <div class="field">
+    <%= f.label :max_value %><br>
+    <%= f.text_field :max_value %>
+  </div>
+  <div class="field">
+    <%= f.label :signalk_path %><br>
+    <%= f.text_field :signalk_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

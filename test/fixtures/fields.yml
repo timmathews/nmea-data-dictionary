@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  byte_pos: 1
+  bit_pos: 1
+  length: 1
+  type: 1
+  scaling: 1.5
+  offset: 1
+  units: 1
+  min_value: 1.5
+  max_value: 1.5
+  signalk_path: MyString
+
+two:
+  name: MyString
+  description: MyText
+  byte_pos: 1
+  bit_pos: 1
+  length: 1
+  type: 1
+  scaling: 1.5
+  offset: 1
+  units: 1
+  min_value: 1.5
+  max_value: 1.5
+  signalk_path: MyString
