@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815215725) do
+ActiveRecord::Schema.define(version: 20140817180823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140815215725) do
     t.integer  "priority"
     t.integer  "default_rate"
     t.integer  "database_version"
-    t.integer  "category"
-    t.integer  "type"
+    t.integer  "pgn_category_id"
+    t.integer  "pgn_type_id"
     t.integer  "size"
     t.integer  "repeating_fields"
     t.boolean  "is_known"

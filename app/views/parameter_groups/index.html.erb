@@ -1,19 +1,19 @@
-<h1>Listing parameter_groups</h1>
+<h1>NMEA 2000 Parameter Groups</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th>Pgn</th>
       <th>Priority</th>
-      <th>Default rate</th>
-      <th>Database version</th>
+      <th>Default Rate</th>
+      <th>Database Version</th>
       <th>Category</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Repeating fields</th>
-      <th>Is known</th>
+      <th>Repeating Fields</th>
+      <th>Is Known</th>
       <th></th>
       <th></th>
       <th></th>
@@ -29,8 +29,8 @@
         <td><%= parameter_group.priority %></td>
         <td><%= parameter_group.default_rate %></td>
         <td><%= parameter_group.database_version %></td>
-        <td><%= parameter_group.category %></td>
-        <td><%= parameter_group.type %></td>
+        <td><%= parameter_group.pgn_category.name %></td>
+        <td><%= parameter_group.pgn_type.name %></td>
         <td><%= parameter_group.size %></td>
         <td><%= parameter_group.repeating_fields %></td>
         <td><%= parameter_group.is_known %></td>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Parameter group', new_parameter_group_path %>
+<%= link_to 'New PGN Definition', new_parameter_group_path %>
