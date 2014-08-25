@@ -69,6 +69,6 @@ class ParameterGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parameter_group_params
-      params.require(:parameter_group).permit(:name, :description, :pgn, :priority, :default_rate, :database_version, :category, :type, :size, :repeating_fields, :is_known)
+      params.require(:parameter_group).permit(:name, :description, :pgn, :priority, :default_rate, :database_version, :pgn_category_id, :pgn_type_id, :size, :repeating_fields, :is_known)
     end
 end

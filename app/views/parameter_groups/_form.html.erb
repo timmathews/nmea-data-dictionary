@@ -52,10 +52,15 @@
     <%= f.number_field :repeating_fields, class: "form-control" %>
   </div>
   <div class="checkbox">
-  <%= f.label :is_known do %>
-    <%= f.check_box :is_known %>
-    Is Known
-  <% end %>
+    <%= f.label :is_known do %>
+      <%= f.check_box :is_known %>
+      Is Known
+    <% end %>
+  </div>
+  <div class="row">
+    <%= f.fields_for(:fields) do |fields_form| %>
+      <%= fields_form.text_field :name %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit "Save" %>

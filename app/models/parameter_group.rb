@@ -1,15 +1,19 @@
 class ParameterGroup < ActiveRecord::Base
   belongs_to :pgn_category
   belongs_to :pgn_type
+  has_many :parameter_group_fields
+  has_many :fields, through: :parameter_group_fields
+
+  accepts_nested_attributes_for :fields
 
   validate :size_is_correct
 
   def size_is_correct
-    if type == 2 && size > 8
+    if pgn_type_id == 2 && size > 8
       errors.add(:size, "can't be greater than 8 when type is single frame")
-    elsif type == 3 && size > 223
+    elsif pgn_type_id == 3 && size > 223
       errors.add(:size, "can't be greater than 223 when type is fast packet")
-    elsif type == 4 && size > 1785
+    elsif pgn_type_id == 4 && size > 1785
       errors.add(:size, "can't be greater than 1785 when type is transport protocol")
     end
   end

@@ -32,12 +32,12 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @parameter_group.pgn_category.name %>
+  <%= @parameter_group.pgn_category.name unless @parameter_group.pgn_category.nil? %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @parameter_group.pgn_type.name %>
+  <%= @parameter_group.pgn_type.name unless @parameter_group.pgn_type.nil? %>
 </p>
 
 <p>
