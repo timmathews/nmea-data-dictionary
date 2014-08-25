@@ -11,53 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :byte_pos %><br>
-    <%= f.number_field :byte_pos %>
+  <div class="form-group">
+    <%= f.label :length %>
+    <%= f.number_field :length, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :bit_pos %><br>
-    <%= f.number_field :bit_pos %>
+  <div class="form-group">
+    <%= f.label :field_type_id %>
+    <%= f.collection_select :field_type_id, FieldType.all, :id, :name, {:prompt => true}, {:class => "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :length %><br>
-    <%= f.number_field :length %>
+  <div class="form-group">
+    <%= f.label :scaling %>
+    <%= f.text_field :scaling, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.number_field :type %>
+  <div class="form-group">
+    <%= f.label :offset %>
+    <%= f.number_field :offset, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :scaling %><br>
-    <%= f.text_field :scaling %>
+  <div class="form-group">
+    <%= f.label :field_enumerations %>
+    <%= f.collection_select :field_enumerators, FieldEnumerator.all, :id, :name, {:prompt => true}, {:multiple => true, :class => "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :offset %><br>
-    <%= f.number_field :offset %>
+  <div class="form-group">
+    <%= f.label :field_unit_id %>
+    <%= f.collection_select :field_unit_id, FieldUnit.all, :id, :name, {:prompt => true}, {:class => "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :units %><br>
-    <%= f.number_field :units %>
+  <div class="form-group">
+    <%= f.label :min_value %>
+    <%= f.text_field :min_value, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :min_value %><br>
-    <%= f.text_field :min_value %>
+  <div class="form-group">
+    <%= f.label :max_value %>
+    <%= f.text_field :max_value, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :max_value %><br>
-    <%= f.text_field :max_value %>
-  </div>
-  <div class="field">
-    <%= f.label :signalk_path %><br>
-    <%= f.text_field :signalk_path %>
+  <div class="form-group">
+    <%= f.label :signalk_path %>
+    <%= f.text_field :signalk_path, :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>

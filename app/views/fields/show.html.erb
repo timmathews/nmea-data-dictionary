@@ -1,64 +1,77 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @field.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @field.description %>
-</p>
-
-<p>
-  <strong>Byte pos:</strong>
-  <%= @field.byte_pos %>
-</p>
-
-<p>
-  <strong>Bit pos:</strong>
-  <%= @field.bit_pos %>
-</p>
-
-<p>
-  <strong>Length:</strong>
-  <%= @field.length %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @field.type %>
-</p>
-
-<p>
-  <strong>Scaling:</strong>
-  <%= @field.scaling %>
-</p>
-
-<p>
-  <strong>Offset:</strong>
-  <%= @field.offset %>
-</p>
-
-<p>
-  <strong>Units:</strong>
-  <%= @field.units %>
-</p>
-
-<p>
-  <strong>Min value:</strong>
-  <%= @field.min_value %>
-</p>
-
-<p>
-  <strong>Max value:</strong>
-  <%= @field.max_value %>
-</p>
-
-<p>
-  <strong>Signalk path:</strong>
-  <%= @field.signalk_path %>
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-8">
+            <h3 class="panel-title"><%= @field.name %></h3>
+          </div>
+          <div class="col-xs-2">
+            Length: <%= @field.length %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-3">
+            Type: <%= @field.field_type.name unless @field.field_type.nil? %>
+          </div>
+          <div class="col-xs-3">
+            Units: <%= @field.field_unit.name unless @field.field_unit.nil? %>
+          </div>
+          <div class="col-xs-3">
+            Scaling: <%= @field.scaling %>
+          </div>
+          <div class="col-xs-3">
+            Offset: <%= @field.offset %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Value: <%= @field.min_value %> &nbsp; <%= @field.max_value %>
+          </div>
+          <div class="col-xs-6">
+            Signalk path: <%= @field.signalk_path %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>
+            <strong>Description:</strong>
+            <%= @field.description %>
+            </p>
+          </div>
+          <% if @field.field_enumerators.count > 0 %>
+          <div class="col-xs-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h4 class="panel-title">Enumeration Values</h4>
+              </div>
+              <table class="table table-condensed table-striped">
+                <thead>
+                  <tr>
+                    <th>Value</th>
+                    <th>Descriptor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @field.field_enumerators.order(:value).each do |e| %>
+                    <tr>
+                      <td><%= e.value %></td>
+                      <td><%= e.name %></td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_field_path(@field) %> |
 <%= link_to 'Back', fields_path %>

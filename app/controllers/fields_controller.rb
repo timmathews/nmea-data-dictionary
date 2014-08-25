@@ -69,6 +69,6 @@ class FieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_params
-      params.require(:field).permit(:name, :description, :byte_pos, :bit_pos, :length, :type, :scaling, :offset, :units, :min_value, :max_value, :signalk_path)
+      params.require(:field).permit(:name, :description, :byte_pos, :bit_pos, :length, :field_type_id, :scaling, :offset, :field_unit_id, :min_value, :max_value, :signalk_path)
     end
 end
