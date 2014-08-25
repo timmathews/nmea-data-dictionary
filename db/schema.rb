@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817180823) do
+ActiveRecord::Schema.define(version: 20140819221644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +43,26 @@ ActiveRecord::Schema.define(version: 20140817180823) do
     t.string   "name"
     t.text     "description"
     t.integer  "byte_pos"
-    t.integer  "bit_pos"
     t.integer  "length"
-    t.integer  "type"
+    t.integer  "field_type_id"
     t.float    "scaling"
     t.integer  "offset"
-    t.integer  "units"
+    t.integer  "field_unit_id"
     t.float    "min_value"
     t.float    "max_value"
     t.string   "signalk_path"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "parameter_group_fields", force: true do |t|
+    t.integer  "parameter_group_id"
+    t.integer  "field_id"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "byte_position"
+    t.integer  "bit_position"
   end
 
   create_table "parameter_groups", force: true do |t|
