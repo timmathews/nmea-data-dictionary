@@ -4,7 +4,9 @@ class ParameterGroup < ActiveRecord::Base
   has_many :parameter_group_fields
   has_many :fields, through: :parameter_group_fields
 
-  accepts_nested_attributes_for :fields
+  accepts_nested_attributes_for :parameter_group_fields
+
+  default_scope { includes(:pgn_category).order('pgn_categories.name, pgn') }
 
   validate :size_is_correct
 
