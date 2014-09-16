@@ -10,3 +10,32 @@ body {
   text-align: center;
 }
 
+td > .btn-group {
+  display: flex;
+}
+
+.text-success + .tooltip {
+  > .tooltip-inner {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+
+  > .tooltip-arrow {
+    border-left-color: #dff0d8;
+  }
+}
+
+.text-danger + .tooltip {
+  > .tooltip-inner {
+    background-color: #f2dede;
+    color: #a94442;
+  }
+
+  > .tooltip-arrow {
+    border-left-color: #f2dede;
+  }
+}
+
+.table > tbody > tr > td.no-border {
+  border: none;
+}

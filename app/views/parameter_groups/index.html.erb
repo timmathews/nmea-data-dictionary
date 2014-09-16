@@ -1,47 +1,60 @@
-<h1>NMEA 2000 Parameter Groups</h1>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h1>NMEA 2000 Parameter Groups</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>PGN</th>
+          <th>Category</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Pgn</th>
-      <th>Priority</th>
-      <th>Default Rate</th>
-      <th>Database Version</th>
-      <th>Category</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Repeating Fields</th>
-      <th>Is Known</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @parameter_groups.each do |parameter_group| %>
+          <tr>
+            <td>
+              <% if parameter_group.is_known %>
+                <span class="glyphicon glyphicon-ok-sign text-success js-tip" title="Well known, verified" data-toggle="tooltip" data-placement="left"></span>
+              <% else %>
+                <span class="glyphicon glyphicon-question-sign text-danger js-tip" title="Unknown, unverified" data-data-toggle="tooltip" data-placement="left"></span>
+              <% end %>
+            </td>
+            <td><%= parameter_group.pgn %></td>
+            <td><%= parameter_group.pgn_category.name %></td>
+            <td><%= parameter_group.name %></td>
+            <td rowspan="2">
+              <div class="btn-group">
+                <%= link_to 'Show', parameter_group, :type => 'button', :class => 'btn btn-sm btn-primary' %>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to 'Edit', edit_parameter_group_path(parameter_group) %></li>
+                  <li><%= link_to 'Destroy', parameter_group, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="no-border"></td>
+            <td class="no-border" colspan="3"><%= parameter_group.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= link_to 'New PGN Definition', new_parameter_group_path %>
+  </div>
+</div>
 
-  <tbody>
-    <% @parameter_groups.each do |parameter_group| %>
-      <tr>
-        <td><%= parameter_group.name %></td>
-        <td><%= parameter_group.description %></td>
-        <td><%= parameter_group.pgn %></td>
-        <td><%= parameter_group.priority %></td>
-        <td><%= parameter_group.default_rate %></td>
-        <td><%= parameter_group.database_version %></td>
-        <td><%= parameter_group.pgn_category.name %></td>
-        <td><%= parameter_group.pgn_type.name %></td>
-        <td><%= parameter_group.size %></td>
-        <td><%= parameter_group.repeating_fields %></td>
-        <td><%= parameter_group.is_known %></td>
-        <td><%= link_to 'Show', parameter_group %></td>
-        <td><%= link_to 'Edit', edit_parameter_group_path(parameter_group) %></td>
-        <td><%= link_to 'Destroy', parameter_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New PGN Definition', new_parameter_group_path %>
