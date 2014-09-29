@@ -6,7 +6,7 @@ class ParameterGroup < ActiveRecord::Base
 
   accepts_nested_attributes_for :parameter_group_fields
 
-  default_scope { includes(:pgn_category).order('pgn_categories.name, pgn') }
+  default_scope { includes(:pgn_category).order("pgn_categories.name, pgn, unique_pgn") }
 
   validate :size_is_correct
 
