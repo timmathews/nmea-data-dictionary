@@ -26,12 +26,12 @@
                 <span class="glyphicon glyphicon-question-sign text-danger js-tip" title="Unknown, unverified" data-data-toggle="tooltip" data-placement="left"></span>
               <% end %>
             </td>
-            <td><%= parameter_group.pgn %></td>
+            <td><%= parameter_group.unique_pgn %></td>
             <td><%= parameter_group.pgn_category.name %></td>
             <td><%= parameter_group.name %></td>
             <td rowspan="2">
               <div class="btn-group">
-                <%= link_to 'Show', parameter_group, :type => 'button', :class => 'btn btn-sm btn-primary' %>
+                <%= link_to 'Details', parameter_group, :type => 'button', :class => 'btn btn-sm btn-primary' %>
                 <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                   <span class="caret"></span>
                   <span class="sr-only">Toggle Dropdown</span>
@@ -45,7 +45,7 @@
           </tr>
           <tr>
             <td class="no-border"></td>
-            <td class="no-border" colspan="3"><%= parameter_group.description %></td>
+            <td class="no-border" colspan="3"><%= markdown parameter_group.description %></td>
           </tr>
         <% end %>
       </tbody>

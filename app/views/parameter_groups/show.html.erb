@@ -1,59 +1,98 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @parameter_group.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @parameter_group.description %>
-</p>
-
-<p>
-  <strong>Pgn:</strong>
-  <%= @parameter_group.pgn %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @parameter_group.priority %>
-</p>
-
-<p>
-  <strong>Default rate:</strong>
-  <%= @parameter_group.default_rate %>
-</p>
-
-<p>
-  <strong>Database version:</strong>
-  <%= @parameter_group.database_version %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @parameter_group.pgn_category.name unless @parameter_group.pgn_category.nil? %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @parameter_group.pgn_type.name unless @parameter_group.pgn_type.nil? %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @parameter_group.size %>
-</p>
-
-<p>
-  <strong>Repeating fields:</strong>
-  <%= @parameter_group.repeating_fields %>
-</p>
-
-<p>
-  <strong>Is known:</strong>
-  <%= @parameter_group.is_known %>
-</p>
-
-<%= link_to 'Edit', edit_parameter_group_path(@parameter_group) %> |
-<%= link_to 'Back', parameter_groups_path %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-8">
+            <h3 class="panel-title"><%= @parameter_group.pgn %>: <%= @parameter_group.name %></h3>
+          </div>
+          <div class="col-xs-4">
+            <span class="text-right" style="display:block">
+              <%= link_to 'Edit', edit_parameter_group_path(@parameter_group) %> | <%= link_to 'Back', parameter_groups_path %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-4">
+            Priority: <%= @parameter_group.priority %>
+          </div>
+          <div class="col-xs-4">
+            Default Rate: <%= @parameter_group.default_rate %>
+          </div>
+          <div class="col-xs-4">
+            Size: <%= @parameter_group.size %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            Size: <%= @parameter_group.size %>
+          </div>
+          <div class="col-xs-4">
+            Category: <%= @parameter_group.pgn_category.name unless @parameter_group.pgn_category.nil? %>
+          </div>
+          <div class="col-xs-4">
+            Type: <%= @parameter_group.pgn_type.name unless @parameter_group.pgn_type.nil? %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            Database Version: <%= @parameter_group.database_version %>
+          </div>
+          <div class="col-xs-4">
+            Verified: <%= @parameter_group.is_known %>
+          </div>
+          <div class="col-xs-4">
+            Repeating Fields: <%= @parameter_group.repeating_fields %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <p><%= markdown @parameter_group.description %></p>
+          </div>
+        </div>
+      </div>
+      <table class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Byte</th>
+            <th>Bit</th>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Units</th>
+            <th>Length</th>
+            <th>Value Range</th>
+            <th>Offset</th>
+            <th>Resolution</th>
+            <th>Signal K Path</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @parameter_group.parameter_group_fields.each do |f| %>
+          <tr>
+            <td><%= f.order %></td>
+            <td><%= f.byte_position %></td>
+            <td><%= f.bit_position %></td>
+            <td><%= link_to f.field.name, field_path(f.field) %></td>
+            <td><%= f.field.field_type.name unless f.field.field_type.nil? %></td>
+            <td><%= f.field.field_unit.name unless f.field.field_unit.nil? %></td>
+            <td><%= f.field.length %></td>
+            <% if f.field.min_value == f.field.max_value %>
+              <td><%= "%d" % f.field.min_value %> (all 1's)</td>
+            <% else %>
+              <td><%= f.field.min_value_typed %> &ndash; <%= f.field.max_value_typed %></td>
+            <% end %>
+            <td><%= f.field.offset %></td>
+            <td><%= f.field.scaling %></td>
+            <td><%= f.field.signalk_path %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
