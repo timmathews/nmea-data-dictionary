@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819221644) do
+ActiveRecord::Schema.define(version: 20140920184835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140819221644) do
   create_table "fields", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "byte_pos"
     t.integer  "length"
     t.integer  "field_type_id"
     t.float    "scaling"
@@ -71,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140819221644) do
     t.integer  "pgn"
     t.integer  "priority"
     t.integer  "default_rate"
-    t.integer  "database_version"
+    t.decimal  "database_version",            precision: 5, scale: 3
     t.integer  "pgn_category_id"
     t.integer  "pgn_type_id"
     t.integer  "size"
@@ -79,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140819221644) do
     t.boolean  "is_known"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unique_pgn",       limit: 18
   end
 
   create_table "pgn_categories", force: true do |t|
