@@ -28,8 +28,8 @@
         <td><%= field.scaling %></td>
         <td><%= field.offset %></td>
         <td><%= field.field_unit.name unless field.field_unit.nil? %></td>
-        <td><%= field.min_value %></td>
-        <td><%= field.max_value %></td>
+        <td><%= field.min_value_typed %></td>
+        <td><%= field.max_value_typed %></td>
         <td><%= link_to 'Show', field %></td>
         <td><%= link_to 'Edit', edit_field_path(field) %></td>
         <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
