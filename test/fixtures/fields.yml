@@ -3,13 +3,11 @@
 one:
   name: MyString
   description: MyText
-  byte_pos: 1
-  bit_pos: 1
   length: 1
-  type: 1
+  field_type_id: 1
   scaling: 1.5
   offset: 1
-  units: 1
+  field_unit_id: 1
   min_value: 1.5
   max_value: 1.5
   signalk_path: MyString
@@ -17,13 +15,11 @@ one:
 two:
   name: MyString
   description: MyText
-  byte_pos: 1
-  bit_pos: 1
   length: 1
-  type: 1
+  field_type_id: 1
   scaling: 1.5
   offset: 1
-  units: 1
+  field_unit_id: 1
   min_value: 1.5
   max_value: 1.5
   signalk_path: MyString
