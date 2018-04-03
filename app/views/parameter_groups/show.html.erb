@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="row">
-          <div class="col-xs-8">
+          <div class="col-8">
             <h3 class="panel-title"><%= @parameter_group.pgn %>: <%= @parameter_group.name %></h3>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             <span class="text-right" style="display:block">
               <%= link_to 'Edit', edit_parameter_group_path(@parameter_group) %> | <%= link_to 'Back', parameter_groups_path %>
             </span>
@@ -17,40 +17,40 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-4">
             Priority: <%= @parameter_group.priority %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Default Rate: <%= @parameter_group.default_rate %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Size: <%= @parameter_group.size %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-4">
             Size: <%= @parameter_group.size %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Category: <%= @parameter_group.pgn_category.name unless @parameter_group.pgn_category.nil? %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Type: <%= @parameter_group.pgn_type.name unless @parameter_group.pgn_type.nil? %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-4">
             Database Version: <%= @parameter_group.database_version %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Verified: <%= @parameter_group.is_known %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-4">
             Repeating Fields: <%= @parameter_group.repeating_fields %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-12">
             <p><%= markdown @parameter_group.description %></p>
           </div>
         </div>
